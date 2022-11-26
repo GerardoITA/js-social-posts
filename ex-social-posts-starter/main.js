@@ -68,40 +68,79 @@ const divPostImage = document.createElement("div");
 const divPostFooter = document.createElement("div");
 const divPostLikes = document.createElement("div");
 const divPostLikesCTA = document.createElement("div");
+const divPostLikesCounter = document.createElement("div");
 
+
+for (let i = 0; i < posts.length; i++){
 divPost.classList.add("post");
-divContainer.appendChild(divPost);
+divContainer.append(divPost);
  /* /////// Post Header /////// */
 divPostHeader.classList.add("post__header");
-divPost.appendChild(divPostHeader);
+divPost.append(divPostHeader);
 
 divPostMeta.classList.add("post-meta");
-divPostHeader.appendChild(divPostMeta);
+divPostHeader.append(divPostMeta);
 
 divPostMetaIcon.classList.add("post-meta__icon");
-divPostMeta.appendChild(divPostMetaIcon);
+divPostMeta.append(divPostMetaIcon);
+let DivPostMetaIconImg = document.createElement("img");
+divPostMetaIcon.append(DivPostMetaIconImg);
+DivPostMetaIconImg.src = posts[i].image
 
 divPostMetaData.classList.add("post-meta__data");
-divPostMeta.appendChild(divPostMetaData);
+divPostMeta.append(divPostMetaData);
 
 divPostMetaDataAuthor.classList.add("post-meta__author");
-divPostMetaData.appendChild(divPostMetaDataAuthor);
+divPostMetaData.append(divPostMetaDataAuthor);
+divPostMetaDataAuthor.innerHTML = posts[i].name
+
 
 divPostMetaDataTime.classList.add("post-meta__time");
-divPostMetaData.appendChild(divPostMetaDataTime);
+divPostMetaData.append(divPostMetaDataTime);
+divPostMetaDataTime.innerHTML = posts[i].created
+
 /* /////// Post /////// */
 divPostText.classList.add("post__text");
-divPost.appendChild(divPostText);
+divPost.append(divPostText);
+divPostText.innerHTML = posts[i].content
 
 divPostImage.classList.add("post__image");
-divPost.appendChild(divPostImage);
+divPost.append(divPostImage);
+divPostImage.src = posts[i].media
+
 /* /////// Post Footer /////// */
 divPostFooter.classList.add("post__footer");
-divPost.appendChild(divPostFooter);
+divPost.append(divPostFooter);
 
 divPostLikes.classList.add("likes");
-divPostFooter.appendChild(divPostLikes);
+divPostFooter.append(divPostLikes);
 
 divPostLikesCTA.classList.add("likes__cta");
-divPostLikes.appendChild(divPostLikesCTA);
+divPostLikes.append(divPostLikesCTA);
 
+divPostLikesCounter.classList.add("likes__counter");
+divPostLikes.append(divPostLikesCounter);
+let JSLikesCounterNum = 80;
+divPostLikesCounter.innerHTML = `
+    Piace a ${JSLikesCounterNum} persone
+`
+
+let JSLikeButton = document.createElement("a");
+JSLikeButton.classList.add("like-button", "js-like-button");
+JSLikeButton.innerHTML = `
+    <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
+    <span class="like-button__label">Mi Piace</span>
+`;
+
+
+JSLikeButton.addEventListener("click",
+    
+    function onClick(){
+        JSLikesCounterNum++;
+        this.classList.toggle("like-button--liked");
+        console.log(JSLikesCounterNum)
+    }
+    
+    )
+
+}
