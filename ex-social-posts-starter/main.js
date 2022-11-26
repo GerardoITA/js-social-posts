@@ -55,3 +55,53 @@ const posts = [
         "created": "2021-03-05"
     }
 ];
+const divContainer = document.getElementById("container");
+const divPost = document.createElement("div");
+const divPostHeader = document.createElement("div");
+const divPostMeta = document.createElement("div");
+const divPostMetaIcon = document.createElement("div");
+const divPostMetaData = document.createElement("div");
+const divPostMetaDataAuthor = document.createElement("div");
+const divPostMetaDataTime = document.createElement("div");
+const divPostText = document.createElement("div");
+const divPostImage = document.createElement("div");
+const divPostFooter = document.createElement("div");
+const divPostLikes = document.createElement("div");
+const divPostLikesCTA = document.createElement("div");
+
+divPost.classList.add("post");
+divContainer.appendChild(divPost);
+ /* /////// Post Header /////// */
+divPostHeader.classList.add("post__header");
+divPost.appendChild(divPostHeader);
+
+divPostMeta.classList.add("post-meta");
+divPostHeader.appendChild(divPostMeta);
+
+divPostMetaIcon.classList.add("post-meta__icon");
+divPostMeta.appendChild(divPostMetaIcon);
+
+divPostMetaData.classList.add("post-meta__data");
+divPostMeta.appendChild(divPostMetaData);
+
+divPostMetaDataAuthor.classList.add("post-meta__author");
+divPostMetaData.appendChild(divPostMetaDataAuthor);
+
+divPostMetaDataTime.classList.add("post-meta__time");
+divPostMetaData.appendChild(divPostMetaDataTime);
+/* /////// Post /////// */
+divPostText.classList.add("post__text");
+divPost.appendChild(divPostText);
+
+divPostImage.classList.add("post__image");
+divPost.appendChild(divPostImage);
+/* /////// Post Footer /////// */
+divPostFooter.classList.add("post__footer");
+divPost.appendChild(divPostFooter);
+
+divPostLikes.classList.add("likes");
+divPostFooter.appendChild(divPostLikes);
+
+divPostLikesCTA.classList.add("likes__cta");
+divPostLikes.appendChild(divPostLikesCTA);
+
